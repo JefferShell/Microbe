@@ -53,10 +53,10 @@ class Login:
         password=web.net.websafe(postdata.password)
         rslist=getUserByUserName(username)
         if username=="":
-            return render.Login(self.loginForm,"账号或密码不能为空！")
+            return render.LoginPage(self.loginForm,u"账号密码不能为空！")
         if len(rslist)==0:
-            errorInfo = "对不起，%s不存在----"%(username)
-            return render.login(self.LoginForm,errorInfo)
+            errorInfo = u"对不起,%s没有找到!"%(username)
+            return render.LoginPage(self.loginForm,errorInfo)
         else:
             if password==rslist[0].pwd:                
                 session.count=1
@@ -65,7 +65,7 @@ class Login:
 #                 return render.MainPage(tempInfo)
                 raise web.seeother("/",tempInfo)
             else:
-                return render.Login(self.loginForm,'用户名及密码不匹配')
+                return render.LoginPage(self.loginForm,u"密码错误！！！")
 class Logout():
     def GET(self):
         print "logout"
