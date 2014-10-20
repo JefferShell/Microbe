@@ -5,3 +5,4 @@
 ###
 class MainPage():
     def GET(self):
+        print 

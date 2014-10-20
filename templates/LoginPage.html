@@ -1,0 +1,14 @@
+$def with(form,message='')
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录页面</title>
+</head>
+<body>
+<form method="POST" action='/Login'>
+		$:message
+    $:form.render()
+</form>
+</body>
+</html>
