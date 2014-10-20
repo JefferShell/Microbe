@@ -1,4 +1,4 @@
-$def with(name) 
+$def with(info) 
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +7,13 @@ $def with(name)
 </head>
 <body>
 <h1>欢迎来到Microbe，我是Eric！</h1>
-<p><b>您的当前ip   :</b>	$name["ip"]</p>
-<p><b>您的当前时间     :</b>	$name["curTime"]</p>
+<p><b>您的当前ip   :</b>	</u>$info["ip"]</u></p>
+<p><b>您的当前时间     :</b>	$info["curTime"]</p>
+<p><b>您的登录状态     :</b>	$info["loginInfo"]</p>
 <hr/>
 <div>
 	<p>请选择您需要的操作</p>
-	<a href="Login">点击进入登录</a>
+	<a href="Login">点击进入登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Logout">点击退出登录</a>
 </div>
 </body>
 </html>
