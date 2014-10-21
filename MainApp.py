@@ -4,7 +4,7 @@ import datetime
 from web import form
 from models import getUserByUserName
 # from setting import urls
-web.config.debug = False
+web.config.debug=False
 urls=(
       '/', 'MainPage',
       '/Login', 'Login',
@@ -16,11 +16,11 @@ app = web.application(urls,globals())
 web.template.Template.globals['static'] = '/static'
 render = web.template.render('templates',base='base')
 session = web.session.Session(app, web.session.DiskStore('sessions'), initializer={'count': 0})  
-web.config._session = session   
+# web.config._session = session
+# web.config.debug=False
 tempInfo = {}
 class MainPage():
     def GET(self):
-        info = {}
         print session.count
         print 'MainPage'
         ip = web.ctx  
