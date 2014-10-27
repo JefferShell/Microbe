@@ -3,21 +3,13 @@ import web
 import datetime
 from web import form
 from models import getUserByUserName
-# from setting import urls
+from setting import urls,  getGlobals
 web.config.debug=False
-urls=(
-      '/', 'MainPage',
-      '/Login', 'Login',
-      '/Logout', 'Logout',
-      '/(.*)', 'Page404'
-      )
 app = web.application(urls,globals()) 
 #设置静态文件的目录
 web.template.Template.globals['static'] = '/static'
-render = web.template.render('templates',base='base')
+render = web.template.render('templates',base='base',globals=getGlobals(web))
 session = web.session.Session(app, web.session.DiskStore('sessions'), initializer={'count': 0})  
-# web.config._session = session
-# web.config.debug=False
 tempInfo = {}
 class MainPage():
     def GET(self):
@@ -68,7 +60,6 @@ class Login:
                 return render.LoginPage(self.loginForm,u"密码错误！！！")
 class Logout():
     def GET(self):
-        print "logout"
         session.kill()
         raise web.seeother("/", tempInfo)
 #
