@@ -2,7 +2,6 @@
 import web
 import datetime
 from web import form
-from models import getUserByUserName
 from setting import urls,  getGlobals
 web.config.debug=False
 app = web.application(urls,globals()) 
@@ -43,7 +42,8 @@ class Login:
         postdata=web.input()
         username=web.net.websafe(postdata.username)
         password=web.net.websafe(postdata.password)
-        rslist=getUserByUserName(username)
+#         rslist=getUserByUserName(username)
+        rslist=['123546']
         if username=="":
             return render.LoginPage(self.loginForm,u"账号密码不能为空！")
         if len(rslist)==0:
