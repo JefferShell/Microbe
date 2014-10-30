@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//service/ArticleService.py=utf-8
+encoding//service/UserService.py=utf-8
 encoding//templates/Copy\ of\ Page404.html=UTF-8
 encoding/MainApp.py=utf-8
 encoding/controllers.py=utf-8

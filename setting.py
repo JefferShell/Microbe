@@ -14,3 +14,4 @@ def getGlobals(web):
            "global_data":web.datestr,
            "cookie":web.cookies,
            }
+    return t_globals

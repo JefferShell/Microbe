@@ -1,29 +1,26 @@
 #_*_ coding:utf-8 _*_
 import web
 import datetime
+import sys
+sys.path.append('./service')
 from web import form
 from setting import urls,  getGlobals
+from ArticleService import *
 web.config.debug=False
 app = web.application(urls,globals()) 
 #设置静态文件的目录
 web.template.Template.globals['static'] = '/static'
-render = web.template.render('templates',base='base',globals=getGlobals(web))
-session = web.session.Session(app, web.session.DiskStore('sessions'), initializer={'count': 0})  
+render = web.template.render('templates',globals=getGlobals(web))
+session = web.session.Session(app, web.session.DiskStore('sessions'), initializer={'id': 0,'status': 0})  
 tempInfo = {}
 class MainPage():
     def GET(self):
-        print session.count
+        print session.id
+        print session.status
+        ord=1
         print 'MainPage'
-        ip = web.ctx  
-#         print ip
-        curTime = datetime.datetime.now().strftime("%Y-%m-%d  %H:%M:%S")
-        tempInfo["ip"] = ip.ip
-        tempInfo["curTime"] = curTime
-        if logged() :
-            tempInfo["loginInfo"] = "您已登录!"
-        else:
-            tempInfo["loginInfo"] = "未登录！"
-        return render.MainPage(tempInfo)
+        articles = getAllArticle()
+        return render.MainPage(articles,session.status,ord)
 class Page404:
     def GET(self,name):
         print "404"
