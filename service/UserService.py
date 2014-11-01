@@ -1,4 +1,4 @@
-#coding:utf-8
+#_*_ coding:utf-8 _*_
 import datetime
 
 import web
@@ -11,9 +11,9 @@ db = web.database(dbn = 'mysql', db = 'test', user = 'root',
 def getPwdByName(userName):
     user = ''
     try:
-        user = db.select('user',where='username=$userName',vars=locals())
+        user = db.select('user',where='username=$userName',vars=locals())[0]
     except:
-        print "获取%s失败"%(userName)
+        print "get %s fail"%(userName)
     return user
 #增加用户
 def addUser(userName,pwd):
