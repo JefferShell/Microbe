@@ -1,4 +1,4 @@
-$def with(articles,status,ord) 
+$def with(articles,id) 
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +12,13 @@ $def with(articles,status,ord)
 <div class="container">
 	<div>
 	<h1 class="page-header">欢迎来到Microbe!</h1>
-		$if status==0:
+		$if id==0:
 			<p class="text-right"><a href="Login">您是游客，请登录</a></p>
 		$else:
-			<p class="text-right"><a href="Personal">个人中心</a></p>
+			<p class="text-right">
+			<a href="Personal">个人中心</a> | 
+			<a href="Logout">注销登录</a>
+			</p>
 	</div>
 	<div>
 	<h2 style="color: rgb(170, 170, 170); font-style: italic;"><samp>博客列表</samp></h2>
@@ -32,7 +35,9 @@ $def with(articles,status,ord)
 			$for art in articles:
 				<tr class="success">
 				<td>●</td>
-				<td><a href="Articl/$art.id">$art.title</a></td>
+				<td>
+				<a href="ArticlDetail/$art.id">$art.title</a>|
+				</td>
 				<td>$art.posted_on</td>
 				<td>张涛</td>
 				</tr>

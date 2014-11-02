@@ -6,7 +6,8 @@ urls=(
       '/', 'MainPage',
       '/Login', 'Login',
       '/Logout', 'Logout',
-      '/.*?', 'Page404'
+      '/ArticlDetail','ArticlDetail'
+#       '/.*?', 'Page404'
       )
 #全局变量
 def getGlobals(web):
