@@ -5,7 +5,7 @@ import web
 
 
 ######==========================用户的操作============================= 
-db = web.database(dbn = 'mysql', db = 'test', user = 'root', 
+db = web.database(dbn = 'mysql', db = 'blog', user = 'root', 
                   pw = 'root' ,port = 3306 ,host='127.0.0.1')  
  #根据用户名获取密码
 def getPwdByName(userName):

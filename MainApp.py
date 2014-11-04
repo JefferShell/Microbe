@@ -46,6 +46,7 @@ class Login:
         else:
             if password==user["pwd"]:  
                 print session.id             
+                print user,"userId"             
                 session.id=int(user["userId"])
                 print session.id  
                 raise web.seeother("/")
