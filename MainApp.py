@@ -15,7 +15,7 @@ web.template.Template.globals['static'] = '/static'
 render = web.template.render('templates',globals=getGlobals(web))
 session = web.session.Session(app, web.session.DiskStore('sessions'), initializer={'id': 0})  
 tempInfo = {}
-class MainPage():
+class mainPage():
     def GET(self):
         print session.id
         print 'MainPage'
@@ -26,7 +26,7 @@ class MainPage():
 #         print "404"
 #         errorStr = name,"页面没找到，请处理"
 #         return render.Page404(name)
-class Login:
+class login:
     def GET(self):
         if str(session.id) != "0":
             articles = getAllArticle()
@@ -52,10 +52,15 @@ class Login:
                 raise web.seeother("/")
             else:
                 return render.LoginPage(u"密码错误！！！")
-class Logout():
+class logout():
     def GET(self):
         session.kill()
         raise web.seeother("/")
+class addArticle():
+    def GET(self,id=''):
+        print id
+        user=getUserById(session.id)
+        return render.AddArticle(user);
 # class ArticlDetail():
 #     def GET(self,blogId):
 #         print "ArticlDetail"

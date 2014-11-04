@@ -15,6 +15,14 @@ def getPwdByName(userName):
     except:
         print "get %s fail"%(userName)
     return user
+#根据id获取user
+def getUserById(userId):
+    user = ''
+    try:
+        user = db.select('user',where='userId=$userId',vars=locals())[0]
+    except:
+        print "get %s fail"%(userId)
+    return user
 #增加用户
 def addUser(userName,pwd):
     try:
@@ -40,4 +48,4 @@ def deleteUserById(id):
         print "删除%s失败"%(id)
     
 if __name__ == '__main__':
-    print getPwdByName("zt")
+    print getUserById("1")

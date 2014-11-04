@@ -3,10 +3,11 @@ import os
 
 #地址跳转页面
 urls=(
-      '/', 'MainPage',
-      '/Login', 'Login',
-      '/Logout', 'Logout',
-      '/ArticlDetail','ArticlDetail'
+      '/', 'mainPage',
+      '/login', 'login',
+      '/logout', 'logout',
+      '/addArticle/(.*)','addArticle',
+      '/articlDetail','articlDetail'
 #       '/.*?', 'Page404'
       )
 #全局变量
