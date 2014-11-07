@@ -6,7 +6,7 @@ urls=(
       '/', 'mainPage',
       '/login', 'login',
       '/logout', 'logout',
-      '/addArticle/(.*)','addArticle',
+      '/addArticle/.*?','addArticle',
       '/articlDetail','articlDetail'
 #       '/.*?', 'Page404'
       )

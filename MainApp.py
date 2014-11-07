@@ -61,6 +61,15 @@ class addArticle():
         print id
         user=getUserById(session.id)
         return render.AddArticle(user);
+    def POST(self):
+        data = web.input()
+        title = web.net.websafe(data.title);
+        content = web.net.websafe(data.content);
+        if title=="" or content=="":
+            raise web.seeother("/addArticle/"+session.id)
+        else:
+            createArticle(title,content,session.id)
+        raise web.seeother("/")
 # class ArticlDetail():
 #     def GET(self,blogId):
 #         print "ArticlDetail"
