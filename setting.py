@@ -7,7 +7,7 @@ urls=(
       '/login', 'login',
       '/logout', 'logout',
       '/addArticle/.*?','addArticle',
-      '/articlDetail','articlDetail'
+      '/articlDetail/(.*?)','articlDetail'
 #       '/.*?', 'Page404'
       )
 #全局变量

@@ -1,4 +1,4 @@
-#coding=utf-8
+#_*_ coding:utf-8 _*_
 
 
 import datetime
@@ -51,4 +51,4 @@ def updateArticle(id,title,content):
     except:
         print "修改%s文章失败"%(id)
 if __name__ == '__main__':
-    print getAllArticle()
+    print getAllArticle()[0]

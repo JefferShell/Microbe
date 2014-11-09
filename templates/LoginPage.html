@@ -2,42 +2,77 @@ $def with(message='')
 <!DOCTYPE html>
 <html>
 <head>
-<title>登录页面</title>
-<meta charset="utf-8">
-<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="application/x-javascript">
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-</script>
+<script src="/static/js/jquery-1.9.1.js"></script>
+<link href="/static/css/bootstrap.min.css"  rel="stylesheet" media="screen">
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
 </head>
 <body>
-	<!-----start-main---->
-	<div class="main">
-		<div class="login-form">
-			$if message!="":
-				<h1>$message</h1>
-			$else:
-				<h1>用户登录</h1>
-			<div class="head">
-				<img src="/static/images/user.png" alt="" />
-			</div>
-			<form method="post" action="login">
-				<input type="text" class="text" value="USERNAME" name="username"
-					onfocus="this.value = '';"
-					onblur="if (this.value == '') {this.value = 'USERNAME';}">
-				<input type="password" name="password" value="Password" onfocus="this.value = '';"
-					onblur="if (this.value == '') {this.value = 'Password';}">
-				<div class="submit">
-					<input type="submit">
-				</div>
-				<p>
-					<a href="#">Forgot Password ?</a>
-				</p>
-			</form>
-		</div>
-		<!--//End-login-form-->
-	</div>
-	<!-----//end-main---->
-
+		<center>
+			<div class="container" >
+				<div class="jumbotron">
+					<img src="/static/images/user.png" alt="" />
+						$if message!="":
+							<h3>$message</h3>
+						$else:
+						<h2 class="page-header">请输入注册邮箱登录</h2>
+					<hr />
+					<div>
+						<form role="form" method="post" action="login">
+							<table>
+								<tr>
+									<td width="50%">
+										<div class="form-group">
+											<label class="sr-only"
+												for="exampleInputEmail2">
+												Email address
+											</label>
+											<input type="email"
+												class="form-control" name="username"
+												placeholder="Enter email">
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td width="50%">
+										<div class="form-group">
+											<label class="sr-only"
+												for="exampleInputPassword2">
+												Password
+											</label>
+											<input type="password"
+												class="form-control" name="password"
+												placeholder="Password">
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td width="50%">
+										<div class="checkbox">
+											<label>
+												<input
+													type="checkbox">
+												Remember me
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td width="50%" align="center">
+										<button type="submit"
+											class="btn btn-success">
+											登录
+										</button>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<button type="submit"
+											class="btn btn-danger">
+											返回
+										</button>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+		</center>
 </body>
 </html>

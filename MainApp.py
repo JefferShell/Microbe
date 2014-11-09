@@ -70,9 +70,18 @@ class addArticle():
         else:
             createArticle(title,content,session.id)
         raise web.seeother("/")
-# class ArticlDetail():
-#     def GET(self,blogId):
-#         print "ArticlDetail"
-#     return render.ArticlDetail(blogId)
+class articlDetail():
+    def GET(self,blogId):
+        if blogId=="" :
+            raise web.seeother("/")
+        if blogId:
+            article = getArticleById(blogId)
+            article.contents = article.content.split("\n")
+            print len(article.contents)
+            if not str(article).strip():
+                raise web.seeother("/")
+            else:
+                return render.ArticlDetail(article)
+        return render.ArticlDetail(article)
 if __name__ == '__main__':
     app.run()

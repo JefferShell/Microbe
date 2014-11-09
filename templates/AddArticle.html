@@ -11,11 +11,25 @@ $def with (user)
 <body>
  <center>
   <div class="container">
-	<h1 class="page-header">欢迎<em>$user.userName<em>新建博客</h1>
-	<form method="POST" action="addArticle/">
-	<p><textarea id='title' name="title" rows="1" cols="150" >请输入标题</textarea></p>
-	<p><textarea id='content' name="content"  rows="15" cols="150">请输入内容</textarea></p>
-	<p><input type="submit">&nbsp;&nbsp;&nbsp;<input type="button" value="清空"></p>
+	<span class="text-success"><h1 class="page-header" >欢迎<em>$user.userName<em>新建博客</h1></span>
+	<div class="container">
+				<form method="POST" action="addArticle/">
+					<p>
+						<textarea id='title' name="title" rows="1" cols="150" class="form-control" placeholder="请输入标题"></textarea>
+					</p>
+					<p>
+						<textarea class="form-control" id='content' name="content" rows="15" cols="150" placeholder="请输入内容"></textarea>
+					</p>
+					<p> </p>
+					<p> </p>
+					<p> </p>
+					<div class="container">
+					<input class="btn btn-success" style="width:300px;height:40px" type="submit">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input class="btn btn-danger" style="width:300px;height:40px" type="button" value="清空">
+					</div>
+					
+	</div>
   </div>
 </center>
 </body>

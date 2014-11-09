@@ -17,15 +17,12 @@ $def with(articles,id)
 		$else:
 			<p class="text-right">
 			<a href="personal">个人中心</a> | 
-			<a href="logout">注销登录</a>
+			<a href="logout">注销登录</a>	|
+			<a href="addArticle/$id">新增博客</a> |
 			</p>
 	</div>
 	<div>
 	<h2 style="color: rgb(170, 170, 170); font-style: italic;"><samp>博客列表</samp></h2>
-		$if id==0:
-			<h3 style="color: rgb(170, 170, 170); font-style: italic;"><a href="login">登录后新增博客</a></h3>
-		$else:
-			<h3 style="color: rgb(170, 170, 170); font-style: italic;"><a href="addArticle/$id">新增博客</a></h3>
 		<table class="table table-bordered" >
 			<thead>
 				<tr>
@@ -37,7 +34,10 @@ $def with(articles,id)
 			$for art in articles:
 				<tr class="success">
 				<td>
-				<a href="articlDetail/$art.id">$art.title</a>|
+				<a href="articlDetail/$art.id" >$art.title</a>|
+				$if id!=0: 
+					<a href="articlDetail/$art.id"><span class="label label-success ng-scope">修改文章</span></a>|
+					<a href="articlDetail/$art.id"><span class="label label-danger ng-scope">删除文章</span></a>|
 				</td>
 				<td>$art.posted_on</td>
 				</tr>
