@@ -22,7 +22,9 @@ $def with(articles,id)
 			</p>
 	</div>
 	<div>
+	<center>
 	<h2 style="color: rgb(170, 170, 170); font-style: italic;"><samp>博客列表</samp></h2>
+	</center>
 		<table class="table table-bordered" >
 			<thead>
 				<tr>
@@ -34,25 +36,16 @@ $def with(articles,id)
 			$for art in articles:
 				<tr class="success">
 				<td>
-				<a href="articlDetail/$art.id" >$art.title</a>|
+				<a href="articleDetail/$art.id" >$art.title</a>|
 				$if id!=0: 
-					<a href="articlDetail/$art.id"><span class="label label-success ng-scope">修改文章</span></a>|
-					<a href="articlDetail/$art.id"><span class="label label-danger ng-scope">删除文章</span></a>|
+					<a href="modifyArticle/$art.id"><span class="label label-success ng-scope">修改文章</span></a>|
+					<a href="deleteArticle/$art.id"><span class="label label-danger ng-scope">删除文章</span></a>|
 				</td>
 				<td>$art.posted_on</td>
 				</tr>
 			</tbody>
 		</table>
-		<ul>
-		<!-- 
-		$for art in articles:
-		
-			<li>
-				<a href="Articl/$art.id"><em>$art.title</em>&nbsp;&nbsp;&nbsp;$art.posted_on
-			</li>
-		 -->
 	</div>
-	
 	<hr/>
 </div>
 </body>

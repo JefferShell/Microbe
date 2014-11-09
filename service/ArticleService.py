@@ -51,4 +51,4 @@ def updateArticle(id,title,content):
     except:
         print "修改%s文章失败"%(id)
 if __name__ == '__main__':
-    print getAllArticle()[0]
+    print updateArticle("1","1","1")

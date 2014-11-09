@@ -17,8 +17,8 @@ session = web.session.Session(app, web.session.DiskStore('sessions'), initialize
 tempInfo = {}
 class mainPage():
     def GET(self):
-        print session.id
-        print 'MainPage'
+#         print session.id
+#         print 'MainPage'
         articles = getAllArticle()
         return render.MainPage(articles,session.id)
 # class Page404:
@@ -45,10 +45,9 @@ class login:
             return render.LoginPage(errorInfo)
         else:
             if password==user["pwd"]:  
-                print session.id             
-                print user,"userId"             
+#                 print session.id             
+#                 print user,"userId"             
                 session.id=int(user["userId"])
-                print session.id  
                 raise web.seeother("/")
             else:
                 return render.LoginPage(u"密码错误！！！")
@@ -66,22 +65,42 @@ class addArticle():
         title = web.net.websafe(data.title);
         content = web.net.websafe(data.content);
         if title=="" or content=="":
-            raise web.seeother("/addArticle/"+session.id)
+            raise web.seeother("/addArticle/"+id)
         else:
             createArticle(title,content,session.id)
         raise web.seeother("/")
-class articlDetail():
+class modifyArticle():
+    def GET(self,id=''):
+        if session.id !=0 and id!="":
+            article = getArticleById(id)
+            return render.ModifyArticle(article)
+        else:
+            raise web.seeother("/")
+    def POST(self):
+        print "--POST"
+        data = web.input()
+        title = web.net.websafe(data.title);
+        content = web.net.websafe(data.content);
+        print title
+        print content
+        if title=="" or content=="":
+            print "--title"
+            raise web.seeother("/modifyArticle/"+id)
+        else:
+            print "---content"
+            updateArticle(id,title,content)
+        raise web.seeother("/")
+class articleDetail():
     def GET(self,blogId):
         if blogId=="" :
             raise web.seeother("/")
         if blogId:
             article = getArticleById(blogId)
             article.contents = article.content.split("\n")
-            print len(article.contents)
             if not str(article).strip():
                 raise web.seeother("/")
             else:
                 return render.ArticlDetail(article)
-        return render.ArticlDetail(article)
+        return render.ArticleDetail(article)
 if __name__ == '__main__':
     app.run()
