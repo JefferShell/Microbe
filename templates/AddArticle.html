@@ -18,15 +18,12 @@ $def with (user)
 						<textarea id='title' name="title" rows="1" cols="150" class="form-control" placeholder="请输入标题"></textarea>
 					</p>
 					<p>
-						<textarea class="form-control" id='content' name="content" rows="15" cols="150" placeholder="请输入内容"></textarea>
+						<textarea class="form-control" id='content' name="content" rows="32" cols="150" placeholder="请输入内容"></textarea>
 					</p>
-					<p> </p>
-					<p> </p>
-					<p> </p>
 					<div class="container">
 					<input class="btn btn-success" style="width:300px;height:40px" type="submit" value="提交">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input class="btn btn-danger" style="width:300px;height:40px" type="button" value="返回">
+					<input class="btn btn-danger" onclick="javascript:history.back(-1);" style="width:300px;height:40px" type="button" value="返回">
 					</div>
 				</form>
 	</div>

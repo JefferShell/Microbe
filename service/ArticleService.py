@@ -33,7 +33,7 @@ def createArticle(title,content,userId):
     except:
         print "文章插入失败!",title,content
 #删除文章
-def deleteArticle(id):
+def deleteArticleById(id):
     try:
         db.delete('entries',where = 'id=$id',vars = locals())
     except:

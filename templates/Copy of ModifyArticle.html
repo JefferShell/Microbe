@@ -13,16 +13,18 @@ $def with (article)
   <div class="container">
 	<span class="text-success"><h1 class="page-header" >修改博客，请输入内容！</h1></span>
 	<div class="container">	
-		<form action="/modifyArticle/" method="POST">
+		<form action="modifyArticle" method="POST">
 				<p>
-					<textarea class="form-control"  name="title" rows="1" cols="150" placeholder="请输入修改的标题">$article.title</textarea>
+					<textarea class="form-control"  name="title1" rows="1" cols="150" placeholder="请输入修改的标题">$article.title</textarea>
 				</p>
 				<p>
-					<textarea class="form-control"  name="content" rows="32" cols="150" placeholder="请输入修改的内容">$article.content</textarea>
+					<textarea class="form-control"  name="content1" rows="15" cols="150" placeholder="请输入修改的内容">$article.content</textarea>
 				</p>
-				<input type="hidden" name="id" value=$article.id>
+				<p> </p>
+				<p> </p>
+				<p> </p>
 				<input class="btn btn-success" style="width:300px;height:40px" type="submit" value="提交修改">
-				<input  onclick="javascript:history.back(-1);" class="btn btn-danger" style="width:300px;height:40px" type="button" value="返回">
+				<input class="btn btn-danger" style="width:300px;height:40px" type="button" value="清空">
 		</form>
 	</div>
   </div>

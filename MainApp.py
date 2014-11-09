@@ -70,37 +70,46 @@ class addArticle():
             createArticle(title,content,session.id)
         raise web.seeother("/")
 class modifyArticle():
+#     print "22111"
     def GET(self,id=''):
         if session.id !=0 and id!="":
             article = getArticleById(id)
             return render.ModifyArticle(article)
         else:
             raise web.seeother("/")
-    def POST(self):
-        print "--POST"
+    def POST(self,name):
+        print "name=",name
         data = web.input()
         title = web.net.websafe(data.title);
         content = web.net.websafe(data.content);
-        print title
-        print content
+        id = web.net.websafe(data.id)
         if title=="" or content=="":
-            print "--title"
             raise web.seeother("/modifyArticle/"+id)
         else:
-            print "---content"
             updateArticle(id,title,content)
         raise web.seeother("/")
+class deleteArticle():
+    def GET(self,id):
+        print id
+        if session.id !=0 and id!="":
+            deleteArticleById(id)
+            raise web.seeother("/")
+        else:
+            raise web.seeother("/")
+        
 class articleDetail():
     def GET(self,blogId):
+        print "blogId=",blogId
         if blogId=="" :
             raise web.seeother("/")
         if blogId:
             article = getArticleById(blogId)
             article.contents = article.content.split("\n")
+            print article.contents
             if not str(article).strip():
                 raise web.seeother("/")
             else:
-                return render.ArticlDetail(article)
-        return render.ArticleDetail(article)
+                return render.DetailArticl(article)
+        return render.DetailArticl(article)
 if __name__ == '__main__':
     app.run()
