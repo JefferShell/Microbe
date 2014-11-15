@@ -111,5 +111,10 @@ class articleDetail():
             else:
                 return render.DetailArticl(article)
         return render.DetailArticl(article)
+class personal():
+    def GET(self,userId=""):
+        if userId!="":
+            user = getUserById(userId)
+        return render.Personal(user)
 if __name__ == '__main__':
     app.run()

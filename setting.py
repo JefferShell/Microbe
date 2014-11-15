@@ -10,6 +10,7 @@ urls=(
       '/modifyArticle/(.*?)','modifyArticle',
       '/deleteArticle/(.*?)','deleteArticle',
       '/articleDetail/(.*?)','articleDetail',
+      '/personal/(.*?)','personal',
 #       '/.*?', 'Page404'
       )
 #全局变量
