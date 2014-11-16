@@ -20,6 +20,11 @@ class mainPage():
 #         print session.id
 #         print 'MainPage'
         articles = getAllArticle()
+        uid=web.cookies().get('uid')
+        if uid:
+            print "uid",uid
+        else:
+            print "美欧！",uid
         return render.MainPage(articles,session.id)
 # class Page404:
 #     def GET(self,name):
@@ -48,6 +53,7 @@ class login:
 #                 print session.id             
 #                 print user,"userId"             
                 session.id=int(user["userId"])
+                web.setcookie('uid', user["userId"], 3600)
                 raise web.seeother("/")
             else:
                 return render.LoginPage(u"密码错误！！！")

@@ -10,18 +10,27 @@ $def with(articles,id)
 </head>
 <body>
 <div class="container">
-	<div>
-	<h1 class="page-header">欢迎来到Microbe!</h1>
-		$if id==0:
-			<p class="text-right"><a href="login">您是游客，请登录</a></p>
-		$else:
-			<p class="text-right">
-			<a href="personal/$id">个人中心</a> | 
-			<a href="logout">注销登录</a>	|
-			<a href="addArticle/$id">新增博客</a> |
-			</p>
+	<div class="row">
+		<h1 class="page-header">欢迎来到Microbe!</h1>
+		<div class="navbar">
+			<div class="navbar-inner">
+			<div class="container">
+			<div clas="nav-collapse">
+			<ul class="nav">
+				$if id==0:
+					<a href="login">您是游客，请登录</a>
+				$else:
+					<a href="personal/$id">个人中心</a> | 
+					<a href="logout">注销登录</a>	| 
+					<a href="addArticle/$id">新增博客</a> | 
+
+			</ul>
+			</div>
+			</div>
+			</div>
+		</div>
 	</div>
-	<div>
+	<div class="row">
 	<center>
 	<h2 style="color: rgb(170, 170, 170); font-style: italic;"><samp>博客列表</samp></h2>
 	</center>
